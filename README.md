@@ -11,6 +11,7 @@ There's already a list of dns records in the directory, you can add or remove dn
 Remember that you need to install massdns first: https://github.com/blechschmidt/massdns
 
 `chmod +x crsbf`
+
 `./crsbf subdomains-wordlist.txt target.com`
 
 All outputs will be saved to `target.com` directory, you can find all live subdomains at `target.com/target.com-massdns-live-subdomains.txt`.
