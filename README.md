@@ -17,6 +17,6 @@ All outputs will be saved to `target.com` directory, you can find all live subdo
 
 Try this if you want to extract only subdomains from live subdomains out put:
 
-`grep 'target.com. ' target.com-massdns-live-subdomains.txt | awk -F'. ' '{print $1}' | sort -u`
+`grep 'target.com. 'target.com/target.com-massdns-live-subdomains.txt | awk -F'. ' '{print $1}' | sort -u`
 
 Wish you good finding.
