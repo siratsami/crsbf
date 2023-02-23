@@ -1,0 +1,24 @@
+#!/bin/bash
+
+echo ""
+echo "	CSRBF: Custom Record Subdomain Brute Force"
+echo "			  twitter: siratsami71"
+echo ""
+
+echo "	Compiling subdomains to "$2""
+rm -r $2
+mkdir $2
+sed -e 's/$/.'$2'/' $1 >> $2/$2-wordlist.txt
+echo ""
+
+echo "	BruteForcing created subdomains with dnsrecords.txt records"
+for record in $(cat dnsrecords.txt); do massdns -r resolvers.txt -t $record $2/$2-wordlist.txt -w $2/$2-massdns-$record-output.txt; done
+echo ""
+
+echo "	Extracting only live subdomains from massdns outputs"
+for record in $(cat dnsrecords.txt); do grep ' '$record' ' $2/$2-massdns-$record-output.txt; done >> $2/$2-massdns-live-subdomains.txt
+echo ""
+
+echo ""
+echo "	All outputs saved to "$2" directory, good findings."
+echo ""
