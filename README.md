@@ -10,14 +10,23 @@ There's already a list of dns records in the directory, you can add or remove dn
 # Usage
 Remember that you need to install massdns first: https://github.com/blechschmidt/massdns
 
-`chmod +x crsbf`
+```
+chmod +x crsbf
+```
+Run the script on your target:
+```
+./crsbf subdomains-wordlist.txt target.com
+```
 
-`./crsbf subdomains-wordlist.txt target.com`
-
-All outputs will be saved to `target.com` directory, you can find all live subdomains at `target.com/target.com-massdns-live-subdomains.txt`.
+All outputs will be saved to `target.com` directory, you can find all live subdomains at:
+```
+target.com/target.com-massdns-live-subdomains.txt
+```
 
 Try this if you want to extract only subdomains from live subdomains out put:
 
-`grep 'target.com. ' target.com/target.com-massdns-live-subdomains.txt | awk -F'. ' '{print $1}' | sort -u`
+```
+grep 'target.com. ' target.com/target.com-massdns-live-subdomains.txt | awk -F'. ' '{print $1}' | sort -u
+```
 
 Wish you good finding.
